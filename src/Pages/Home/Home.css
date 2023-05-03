@@ -1,0 +1,9 @@
+.Homepage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-image: url("/public/Background-home.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

@@ -1,0 +1,130 @@
+.header {
+  height: 3em;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  margin: 0;
+  flex-direction: row;
+  background: #fff6f8;
+  color: black;
+}
+span {
+  color: #d90429;
+}
+.header-nav {
+  margin-left: 40%;
+}
+.header-nav > ul > li:hover {
+  background: #d90429;
+  border-radius: 1em;
+  transition: 2s;
+}
+.header-nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  column-gap: 2em;
+}
+.header-nav > ul > li > a {
+  text-decoration: none;
+  list-style: none;
+  font-weight: bold;
+  color: black;
+  padding: 10px;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 17px;
+}
+.Header-menu {
+  color: black;
+  font-weight: bold;
+  font-size: 30px;
+  position: absolute;
+  right: 1em;
+  top: 0.8em;
+  display: none;
+  cursor: pointer;
+  z-index: 999;
+}
+.menu-active {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 5em;
+  right: -10%;
+  background: #fff6f8;
+  border-radius: 10px;
+  width: 60%;
+}
+.menu-active > ul > li > a {
+  text-decoration: none;
+  list-style: none;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  padding: 10px;
+}
+.menu-active > ul > li {
+  padding: 12px;
+  width: 60%;
+  margin-top: 0.7em;
+  border-radius: 12px;
+  margin-right: 20%;
+}
+
+.menu-active > ul > li:active {
+  background: #d90429;
+}
+.menu-active > ul {
+  width: 100%;
+}
+
+@media screen and (min-width: 900px) {
+  .header-nav > ul {
+    font-size: 20px;
+  }
+  .header {
+    height: 6em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header-nav > ul {
+    font-size: 20px;
+  }
+  .header {
+    height: 6em;
+  }
+}
+@media screen and (max-width: 1158px) {
+  .header-nav {
+    margin-left: 20%;
+  }
+  .header-logo > h1 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 864px) {
+  .header-nav {
+    margin-left: 7%;
+  }
+  .header-nav > ul > li {
+    margin-left: -2em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header-nav {
+    display: none;
+  }
+  .Header-menu {
+    display: flex;
+  }
+}
