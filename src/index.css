@@ -1,29 +1,50 @@
-* {
-  list-style: none;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap");
 
 body {
   margin: 0;
-  font-family: "ubuntu", sans-serif;
-  background: white;
-  color: black;
+  font-family: "Roboto", sans-serif;
+  background-image: linear-gradient(45deg, #11101f, #1b183a);
 }
-.nested-car-page {
-  position: absolute;
-  top: 33em;
-  z-index: -10;
+.Main {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: 60% 30%;
+  justify-content: end;
+  /* grid-template-columns: 10% 60% 30%; */
 }
-
-@media screen and (max-width: 400px) {
-  .nested-car-page {
-    position: absolute;
-    top: 65em;
-    margin-top: 10em;
+.App {
+  height: 200vh;
+  width: 100%;
+}
+@media screen and (max-width: 700px) {
+  .Main {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    grid-template-columns: 10% 50% 40%;
+    grid-template-rows: repeat(10, 10%);
+  }
+  .Navbar {
+    width: 10%;
+    height: 100vh;
+    grid-row-start: 1;
+    grid-row-end: 11;
+  }
+  .CenterMain {
+    width: 100%;
+    height: 100%;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 8;
+  }
+  .Forecast {
+    width: 100%;
+    height: 100%;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 8;
+    grid-row-end: 11;
   }
 }
-@media screen and (max-width: 500px) {
-  .nested-car-page {
-    margin-top: 10em;
-  }
-}
-/* #d90429 */

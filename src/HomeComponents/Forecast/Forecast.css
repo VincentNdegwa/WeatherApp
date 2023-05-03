@@ -1,0 +1,112 @@
+.Forecast {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.forecast-container {
+  width: 80%;
+  height: 90%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1.4em;
+  color: skyblue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.forecast-header {
+  color: gray;
+  font-size: 1.3em;
+  width: 100%;
+  margin-top: 1.3em;
+  margin-left: 1.3em;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+.forecast-items-holder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(auto, auto);
+  justify-items: center;
+}
+.forecast-item {
+  width: 95%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+  align-content: center;
+}
+.forecast-weather {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.3em;
+}
+.forecast-weather > h2 {
+  font-size: 3em;
+}
+.forecast-temp {
+  text-align: center;
+  font-size: 1.3em;
+  color: gray;
+}
+.forecast-date {
+  color: gray;
+}
+.error-notify {
+  color: red;
+  text-align: center;
+  font-size: 0.8em;
+  margin-right: 2em;
+}
+.forecast-weather > h2 {
+  font-size: 1.8em;
+}
+@media screen and (max-width: 950px) {
+  .forecast-temp {
+    font-size: 1.1em;
+  }
+  .forecast-weather {
+    font-size: 1.2em;
+  }
+  .forecast-weather > h2 {
+    font-size: 1.4em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .Forecast {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .forecast-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 0.2em;
+    /* border: 1px solid; */
+    position: relative;
+  }
+  .forecast-header {
+    /* position: absolute;
+    top: -1em;
+    left: 2em; */
+    font-size: 0.5em;
+  }
+  .forecast-items-holder {
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-rows: repeat(auto, auto);
+    justify-items: center;
+  }
+}
