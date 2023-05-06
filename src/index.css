@@ -5,12 +5,20 @@ body {
   font-family: "Roboto", sans-serif;
   background-image: linear-gradient(45deg, #11101f, #1b183a);
 }
+.home {
+  display: grid;
+  grid-template-columns: 10% 90%;
+}
+.page1 {
+  width: 100%;
+  height: auto;
+}
 .Main {
   display: grid;
   width: 100%;
   height: 100vh;
-  grid-template-columns: 60% 30%;
-  justify-content: end;
+  grid-template-columns: 70% 30%;
+  /* justify-content: center; */
   /* grid-template-columns: 10% 60% 30%; */
 }
 .App {

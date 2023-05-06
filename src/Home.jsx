@@ -4,6 +4,7 @@ import CenterMain from "./HomeComponents/CenterMain/CenterMain";
 import Forecast from "./HomeComponents/Forecast/Forecast";
 import ForeData from "./HomeComponents/Data/ForeCastData";
 import CurrentData from "./HomeComponents/Data/CurrentData";
+import Charts from "./ChartsComponets/ChartTemp/Charts";
 
 function Main() {
   const [foreCastData, setForeCastData] = React.useState(ForeData?.list); //
@@ -57,19 +58,27 @@ function Main() {
 
   return (
     <div className="home">
-      <Navbar />
-      <div className="Main">
-        <CenterMain
-          foreCastData={foreCastData}
-          currentData={currentData}
-          userInput={userInput}
-          setUserInput={setUserInput}
-        />
-        <Forecast
-          foreCastData={foreCastData}
-          currentData={currentData}
-          failedFetch={failedFetch}
-        />
+      <div className="main-nav">
+        <Navbar />
+      </div>
+
+      <div className="page1">
+        <div className="Main">
+          <CenterMain
+            foreCastData={foreCastData}
+            currentData={currentData}
+            userInput={userInput}
+            setUserInput={setUserInput}
+          />
+          <Forecast
+            foreCastData={foreCastData}
+            currentData={currentData}
+            failedFetch={failedFetch}
+          />
+        </div>
+        <div className="Main2">
+          <Charts foreCastData={foreCastData} currentData={currentData} />
+        </div>
       </div>
     </div>
   );
