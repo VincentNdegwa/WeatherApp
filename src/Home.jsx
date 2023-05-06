@@ -8,7 +8,7 @@ import CurrentData from "./HomeComponents/Data/CurrentData";
 function Main() {
   const [foreCastData, setForeCastData] = React.useState(ForeData?.list); //
   const [currentData, setCurrentData] = React.useState(CurrentData);
-  const [userInput, setUserInput] = React.useState("kirinyaga");
+  const [userInput, setUserInput] = React.useState("Nairobi");
   const [failedFetch, setFailedFetch] = React.useState(false);
   // React.useEffect(() => {
   //   setForeCastData(ForeData?.list);

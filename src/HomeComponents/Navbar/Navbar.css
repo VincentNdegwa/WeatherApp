@@ -14,6 +14,15 @@
   color: skyblue;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
+  /* justify-content: center; */
   align-items: center;
+  border: 1px solid;
+}
+.navbar-item {
+  font-size: 2.2em;
+  text-align: center;
+}
+.navbar-item > p {
+  font-size: 0.5em;
 }
