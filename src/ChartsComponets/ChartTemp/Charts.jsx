@@ -9,12 +9,17 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+
 import DayForeCast from "../DayForeCast/DayForeCast";
+// import moment from "moment-timezone";
+// import { DateTime } from "luxon";
+
 function Charts(props) {
   const [startTime, setStarttime] = React.useState();
   const [endTime, setEndTime] = React.useState();
   const [todayTemp, setTodayTemp] = React.useState();
   const [oneDayData, setOneDayData] = React.useState();
+  const [currentData, setCurrentData] = React.useState();
 
   React.useEffect(() => {
     let currentTime = new Date();
@@ -48,13 +53,89 @@ function Charts(props) {
         };
       })
     );
-  }, []);
-  console.log(oneDayData);
-  //   console.log(todayTemp);
+    setCurrentData(props.currentData);
+  }, [props.foreCastData]);
+
+  const convert = () => {
+    // sunrise
+    const sunriseTimestamp = props.currentData?.sys?.sunrise;
+    const offset = props.currentData?.timezone / 3600;
+    const sunrisedate = new Date(sunriseTimestamp * 1000);
+    const sunriseUtcTime =
+      sunrisedate.getTime() +
+      sunrisedate.getTimezoneOffset() * 60000 +
+      offset * 3600000;
+    const sunriseSunTime = new Date(sunriseUtcTime);
+    const sunriseTimeString = sunriseSunTime.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    // sunset
+    const sunsetTimestamp = props.currentData?.sys?.sunset;
+    const sunsetDate = new Date(sunsetTimestamp * 1000);
+    const sunsetUtcTime =
+      sunsetDate.getTime() +
+      sunsetDate.getTimezoneOffset() * 60000 +
+      offset * 3600000;
+    const sunsetTime = new Date(sunsetUtcTime);
+    const sunsetTimeString = sunsetTime.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    // current-time
+    const myCurrentTimestamp = props.currentData?.dt;
+    const myCurrentDate = new Date(myCurrentTimestamp * 1000);
+    const myCurrentUtcTime =
+      myCurrentDate.getTime() +
+      myCurrentDate.getTimezoneOffset() * 60000 +
+      offset * 3600000;
+    const myCurrentTime = new Date(myCurrentUtcTime);
+    const myCurrentTimeString = myCurrentTime.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    console.log(myCurrentTimeString);
+
+    const sunDiff = sunsetTimestamp - sunriseTimestamp;
+    const HoursDiff = Math.round(sunDiff / 3600);
+    const minuteDiff = Math.round((sunDiff % 3600) / 60);
+    console.log(HoursDiff + ":" + minuteDiff);
+
+    // console.log(timeString);
+    // const currentTime = locaionTime;
+    // const currentDate = new Date(currentTime * 1000);
+    // const newUTCtime =
+    //   currentDate.getTime() +
+    //   currentDate.getTimezoneOffset() * 60000 +
+    //   offset * 1000;
+    // const userTime = new Date(newUTCtime);
+    // const exactTime = userTime.toLocaleTimeString([], {
+    //   hour: "2-digit",
+    //   minute: "2-digit",
+    // });
+
+    return (
+      <div className="sun-details">
+        <div className="sunrise">
+          <h2>Sunrise</h2>
+          <div className="sunrise-item">{sunriseTimeString}</div>
+        </div>
+        <div className="sunset">
+          <h2>Sunset</h2>
+          <div className="sunset-item">{sunsetTimeString}</div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="Charts">
-      <DayForeCast oneDayData={oneDayData} />
+      <div className="dayforecast-container">
+        <DayForeCast oneDayData={oneDayData} />
+      </div>
+
       <div className="temp-chart">
         <h2>Temp Analysis</h2>
         <ResponsiveContainer width="50%" height={300}>
@@ -70,7 +151,7 @@ function Charts(props) {
               bottom: 0,
             }}
           >
-            {/* <CartesianGrid strokeDasharray="4 4" /> */}
+            <CartesianGrid strokeDasharray="4 4" />
             <XAxis dataKey="time" />
             <YAxis />
             <Tooltip />
@@ -83,6 +164,7 @@ function Charts(props) {
           </AreaChart>
         </ResponsiveContainer>
       </div>
+      {convert()}
     </div>
   );
 }
