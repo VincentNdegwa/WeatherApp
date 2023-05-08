@@ -2,8 +2,10 @@
 
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
   font-family: "Roboto", sans-serif;
-  background-image: linear-gradient(45deg, #11101f, #1b183a);
+  background-image: linear-gradient(45deg, #0b0b14, #2e2688);
 }
 .home {
   display: grid;
@@ -11,7 +13,7 @@ body {
 }
 .page1 {
   width: 100%;
-  height: auto;
+  height: 200vh;
 }
 .Main {
   display: grid;
@@ -21,9 +23,16 @@ body {
   /* justify-content: center; */
   /* grid-template-columns: 10% 60% 30%; */
 }
+.Main2 {
+  height: 100vh;
+}
 .App {
   height: 200vh;
   width: 100%;
+}
+.menu-slider {
+  position: absolute;
+  left: -25rem;
 }
 @media screen and (max-width: 700px) {
   .Main {
@@ -33,16 +42,39 @@ body {
     grid-template-columns: 10% 50% 40%;
     grid-template-rows: repeat(10, 10%);
   }
-  .Navbar {
-    width: 10%;
+  .main-nav {
+    width: 30%;
     height: 100vh;
-    grid-row-start: 1;
-    grid-row-end: 11;
+    position: fixed;
+    left: -25rem;
+    z-index: 10;
+    transition: all ease-out 1s;
   }
+  .main-nav-slide {
+    width: 30%;
+    height: 100vh;
+    position: fixed;
+    left: 0rem;
+    z-index: 10;
+    transition: all ease-out 1s;
+  }
+  .menu-slider {
+    position: fixed;
+    left: 0rem;
+    top: 0.5em;
+    font-size: 3.5em;
+    color: skyblue;
+    z-index: 20;
+  }
+  .home {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+
   .CenterMain {
     width: 100%;
     height: 100%;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 1;
     grid-row-end: 8;
@@ -50,7 +82,7 @@ body {
   .Forecast {
     width: 100%;
     height: 100%;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 4;
     grid-row-start: 8;
     grid-row-end: 11;

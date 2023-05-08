@@ -26,3 +26,11 @@
 .navbar-item > p {
   font-size: 0.5em;
 }
+@media screen and (max-width: 700px) {
+  .Navbar {
+    width: 20%;
+  }
+  .navbar-container {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}

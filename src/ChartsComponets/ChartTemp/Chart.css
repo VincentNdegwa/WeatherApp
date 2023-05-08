@@ -1,10 +1,76 @@
 .Charts {
   width: 100%;
   height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(3, auto);
 }
 .temp-chart > h2 {
   color: gray;
 }
-.sun-details {
+.chart-center {
+  width: 100%;
+  height: 40%;
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+}
+.sun-details-container {
+  width: 100%;
+  height: 60%;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  row-gap: 1.2em;
+  position: relative;
+}
+.sun-details-day {
   color: white;
+  font-weight: bolder;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  border: 1px solid skyblue;
+  position: relative;
+  border-radius: 1.3em;
+  background-image: linear-gradient(90deg, orange, #f8b705, yellow, #2c2a2aad);
+}
+.sun-details-night {
+  color: white;
+  font-weight: bolder;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
+  border: 1px solid skyblue;
+  position: relative;
+  border-radius: 1.3em;
+  background-image: linear-gradient(
+    90deg,
+    #2c2a2aad,
+    #161514,
+    #352e1b,
+    #8a8a06
+  );
+}
+.sunset > img,
+.sunrise > img {
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  /* margin: 1.2em; */
+}
+.sunrise-item,
+.sunset-item {
+  margin-left: 1.2em;
+  margin-right: 1.2em;
+}
+.time-between {
+  color: gray;
+  font-size: 2em;
+  text-align: center;
 }

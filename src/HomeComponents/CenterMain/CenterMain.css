@@ -147,7 +147,9 @@
     position: relative;
   }
   .centermain-input {
-    margin-top: -3.5%;
+    margin-top: 3.5%;
+    width: 80%;
+    justify-self: end;
   }
   .centermain-container {
     width: 100%;

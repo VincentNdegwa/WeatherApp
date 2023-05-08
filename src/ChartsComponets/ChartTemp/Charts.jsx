@@ -97,34 +97,59 @@ function Charts(props) {
       minute: "2-digit",
     });
     console.log(myCurrentTimeString);
+    // //////////
 
     const sunDiff = sunsetTimestamp - sunriseTimestamp;
-    const HoursDiff = Math.round(sunDiff / 3600);
-    const minuteDiff = Math.round((sunDiff % 3600) / 60);
-    console.log(HoursDiff + ":" + minuteDiff);
+    const hoursSunDiff = Math.floor(sunDiff / 3600);
+    const minutesSunDiff = Math.round((sunDiff % 3600) / 60);
+    const timeStringSunDiff =
+      hoursSunDiff +
+      "Hrs" +
+      ":" +
+      (minutesSunDiff < 10 ? "0" : "") +
+      minutesSunDiff +
+      "Min";
+    console.log(timeStringSunDiff);
+    // ////////
+    const fromSunrise = myCurrentTimestamp - sunriseTimestamp;
+    const hoursFromSunrise = Math.floor(fromSunrise / 3600);
+    const minutesFromSunrise = Math.round((fromSunrise % 3600) / 60);
+    const timeStringfromSunrise =
+      hoursFromSunrise +
+      ":" +
+      (minutesFromSunrise < 10 ? "0" : "") +
+      minutesFromSunrise;
 
-    // console.log(timeString);
-    // const currentTime = locaionTime;
-    // const currentDate = new Date(currentTime * 1000);
-    // const newUTCtime =
-    //   currentDate.getTime() +
-    //   currentDate.getTimezoneOffset() * 60000 +
-    //   offset * 1000;
-    // const userTime = new Date(newUTCtime);
-    // const exactTime = userTime.toLocaleTimeString([], {
-    //   hour: "2-digit",
-    //   minute: "2-digit",
-    // });
+    console.log(timeStringfromSunrise);
 
     return (
-      <div className="sun-details">
-        <div className="sunrise">
-          <h2>Sunrise</h2>
-          <div className="sunrise-item">{sunriseTimeString}</div>
+      <div className="sun-details-container">
+        <div className="time-between">{timeStringSunDiff}</div>
+        <div className="sun-details-day">
+          <div className="sunrise">
+            <div className="sunrise-item">{sunriseTimeString}</div>
+            <h2>Sunrise</h2>
+            <img src="./sun.jpeg" alt="sun" />
+          </div>
+          <div className="sunset">
+            <div className="sunset-item">{sunsetTimeString}</div>
+            <h2>Sunset</h2>
+            <img src="./night.webp" alt="" />
+          </div>
         </div>
-        <div className="sunset">
-          <h2>Sunset</h2>
-          <div className="sunset-item">{sunsetTimeString}</div>
+        {/* ////////////////////// */}
+
+        <div className="sun-details-night">
+          <div className="sunrise">
+            <div className="sunrise-item">{sunriseTimeString}</div>
+            <h2>Sunrise</h2>
+            <img src="./sun.jpeg" alt="sun" />
+          </div>
+          <div className="sunset">
+            <div className="sunset-item">{sunsetTimeString}</div>
+            <h2>Sunset</h2>
+            <img src="./night.webp" alt="" />
+          </div>
         </div>
       </div>
     );
@@ -135,36 +160,37 @@ function Charts(props) {
       <div className="dayforecast-container">
         <DayForeCast oneDayData={oneDayData} />
       </div>
-
-      <div className="temp-chart">
-        <h2>Temp Analysis</h2>
-        <ResponsiveContainer width="50%" height={300}>
-          <AreaChart
-            width={500}
-            height={200}
-            data={oneDayData}
-            syncId="anyId"
-            margin={{
-              top: 10,
-              right: 30,
-              left: 0,
-              bottom: 0,
-            }}
-          >
-            <CartesianGrid strokeDasharray="4 4" />
-            <XAxis dataKey="time" />
-            <YAxis />
-            <Tooltip />
-            <Area
-              type="monotone"
-              dataKey="temp"
-              stroke="#8884d8"
-              fill="#87ceeb"
-            />
-          </AreaChart>
-        </ResponsiveContainer>
+      <div className="chart-center">
+        <div className="temp-chart">
+          <h2>Temp Analysis</h2>
+          <ResponsiveContainer width="100%" height={250}>
+            <AreaChart
+              width={500}
+              height={200}
+              data={oneDayData}
+              syncId="anyId"
+              margin={{
+                top: 10,
+                right: 30,
+                left: 0,
+                bottom: 0,
+              }}
+            >
+              <CartesianGrid strokeDasharray="4 4" />
+              <XAxis dataKey="time" />
+              <YAxis />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey="temp"
+                stroke="#8884d8"
+                fill="#87ceeb"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+        {convert()}
       </div>
-      {convert()}
     </div>
   );
 }

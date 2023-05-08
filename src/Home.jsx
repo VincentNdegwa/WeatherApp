@@ -5,12 +5,15 @@ import Forecast from "./HomeComponents/Forecast/Forecast";
 import ForeData from "./HomeComponents/Data/ForeCastData";
 import CurrentData from "./HomeComponents/Data/CurrentData";
 import Charts from "./ChartsComponets/ChartTemp/Charts";
+import "./index.css";
+import { BsFillArrowRightSquareFill } from "react-icons/bs";
 
 function Main() {
   const [foreCastData, setForeCastData] = React.useState(ForeData?.list); //
   const [currentData, setCurrentData] = React.useState(CurrentData);
   const [userInput, setUserInput] = React.useState("New York");
   const [failedFetch, setFailedFetch] = React.useState(false);
+  const [menuClicked, setMenuClicked] = React.useState(false);
   // React.useEffect(() => {
   //   setForeCastData(ForeData?.list);
   //   setCurrentData(CurrentData);
@@ -57,9 +60,17 @@ function Main() {
       });
   }, [userInput]);
 
+  function HandleNavbar() {
+    setMenuClicked(!menuClicked);
+  }
+
   return (
     <div className="home">
-      <div className="main-nav">
+      <div className="menu-slider" onClick={HandleNavbar}>
+        <BsFillArrowRightSquareFill />
+      </div>
+
+      <div className={menuClicked ? "main-nav-slide" : "main-nav"}>
         <Navbar />
       </div>
 

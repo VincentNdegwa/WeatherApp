@@ -81,13 +81,13 @@ function Forecast(props) {
 
   return (
     <div className="Forecast">
-      <div className="forecast-container">
-        <div className="forecast-header">
-          five day forecast
-          <div className="error-notify">
-            {props.failedFetch ? "network error" : ""}
-          </div>
+      <div className="forecast-header">
+        five day forecast
+        <div className="error-notify">
+          {props.failedFetch ? "network error" : ""}
         </div>
+      </div>
+      <div className="forecast-container">
         <div className="forecast-items-holder">
           {DaysData.map((item, index) => {
             const date = new Date(item.dt * 1000);
