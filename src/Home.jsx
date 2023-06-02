@@ -7,6 +7,7 @@ import CurrentData from "./HomeComponents/Data/CurrentData";
 import Charts from "./ChartsComponets/ChartTemp/Charts";
 import "./index.css";
 import { BsFillArrowRightSquareFill } from "react-icons/bs";
+import { Routes, Route } from "react-router-dom";
 
 function Main() {
   const [foreCastData, setForeCastData] = React.useState(ForeData?.list); //
@@ -75,22 +76,34 @@ function Main() {
       </div>
 
       <div className="page1">
-        <div className="Main">
-          <CenterMain
-            foreCastData={foreCastData}
-            currentData={currentData}
-            userInput={userInput}
-            setUserInput={setUserInput}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="Main">
+                <CenterMain
+                  foreCastData={foreCastData}
+                  currentData={currentData}
+                  userInput={userInput}
+                  setUserInput={setUserInput}
+                />
+                <Forecast
+                  foreCastData={foreCastData}
+                  currentData={currentData}
+                  failedFetch={failedFetch}
+                />
+              </div>
+            }
           />
-          <Forecast
-            foreCastData={foreCastData}
-            currentData={currentData}
-            failedFetch={failedFetch}
+          <Route
+            path="/Chart"
+            element={
+              <div className="Main2">
+                <Charts foreCastData={foreCastData} currentData={currentData} />
+              </div>
+            }
           />
-        </div>
-        <div className="Main2">
-          <Charts foreCastData={foreCastData} currentData={currentData} />
-        </div>
+        </Routes>
       </div>
     </div>
   );

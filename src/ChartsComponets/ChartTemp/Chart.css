@@ -2,16 +2,30 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 79% 20%;
+}
+.temp-chart {
+  width: 100%;
+  margin-left: -2em;
 }
 .temp-chart > h2 {
   color: gray;
+  text-align: center;
+}
+.dayforecast-container {
+  width: 100%;
+  height: 100vh;
+  grid-column: 2/3;
+  display: grid;
+  border-left: 1px solid gray;
 }
 .chart-center {
   width: 100%;
   height: 40%;
   display: grid;
   grid-template-columns: repeat(2, 50%);
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
 .sun-details-container {
   width: 100%;
@@ -62,7 +76,6 @@
   width: 3em;
   height: 3em;
   border-radius: 50%;
-  /* margin: 1.2em; */
 }
 .sunrise-item,
 .sunset-item {

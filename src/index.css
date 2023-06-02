@@ -13,7 +13,7 @@ body {
 }
 .page1 {
   width: 100%;
-  height: 200vh;
+  height: 100vh;
 }
 .Main {
   display: grid;
@@ -27,7 +27,7 @@ body {
   height: 100vh;
 }
 .App {
-  height: 200vh;
+  height: 100vh;
   width: 100%;
 }
 .menu-slider {

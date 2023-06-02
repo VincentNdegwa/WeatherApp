@@ -3,40 +3,26 @@ import "./Navbar.css";
 import "../../index.css";
 import { RxDashboard } from "react-icons/rx";
 import { AiOutlineBarChart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <div className="Navbar">
       <div className="navbar-container">
-        <div className="navbar-item">
+        <Link to="/" className="navbar-item">
           <p>Dashboard</p>
           <RxDashboard />
-        </div>
+        </Link>
 
-        <div className="navbar-item">
+        <Link to="/Chart" className="navbar-item">
           <p>Chart</p>
           <AiOutlineBarChart />
-        </div>
+        </Link>
 
-        <div className="navbar-item">
-          <p>Dashboard</p>
+        <Link to="/Cities" className="navbar-item">
+          <p>Cities</p>
           <RxDashboard />
-        </div>
-
-        <div className="navbar-item">
-          <p>Chart</p>
-          <AiOutlineBarChart />
-        </div>
-
-        <div className="navbar-item">
-          <p>Dashboard</p>
-          <RxDashboard />
-        </div>
-
-        <div className="navbar-item">
-          <p>Chart</p>
-          <AiOutlineBarChart />
-        </div>
+        </Link>
       </div>
     </div>
   );

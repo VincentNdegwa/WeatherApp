@@ -5,7 +5,6 @@ import {
   Area,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
@@ -176,7 +175,6 @@ function Charts(props) {
                 bottom: 0,
               }}
             >
-              <CartesianGrid strokeDasharray="4 4" />
               <XAxis dataKey="time" />
               <YAxis />
               <Tooltip />
@@ -184,7 +182,7 @@ function Charts(props) {
                 type="monotone"
                 dataKey="temp"
                 stroke="#8884d8"
-                fill="#87ceeb"
+                fill="#000000e6"
               />
             </AreaChart>
           </ResponsiveContainer>
